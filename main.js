@@ -132,57 +132,36 @@ for (var i = 0 ; i < courses.length ; i++) {
 
 sortNameDown.style.display="none";
 withoutSort.style.display="none";
+sortName.style.display= "inline-block" ;
 
-sortName.onclick = function(){
-    sortElement = courses.slice();
-   courses.sort(function (a, b) {
-        if (a.name < b.name) {
-          return -1;
-        }
-        if (a.name > b.name) {
-          return 1;
-        }
-        return 0;
-      });
-      
-      console.log(courses); 
-      display();
-      sortName.style.display="none";
-      sortNameDown.style.display="inline-block";
+function toggleSortOrder() {
+ 
 
+    if (sortName.style.display == "inline-block") {
+        sortElement = courses.slice();
+        courses.sort(function(a, b) {
+            return a.name.localeCompare(b.name);
+        });
+        sortName.style.display = "none";
+        sortNameDown.style.display = "inline-block";
+    } else {
+        courses.sort(function(a, b) {
+            return b.name.localeCompare(a.name);
+        });
+        sortNameDown.style.display = "none";
+        withoutSort.style.display="inline-block";
+
+    }
+
+    display(courses);
 }
-
-sortNameDown.onclick = function(){
-
-    courses.sort(function (a, b) {
-        if (a.name > b.name) {
-          return -1;
-        }
-        if (a.name < b.name) {
-          return 1;
-        }
-        return 0;
-      });
-      
-      console.log(courses); 
-      display();
-
-      sortNameDown.style.display= "none";
-
-      withoutSort.style.display="inline-block";
-
-}
-
+// to display course without sort 
 withoutSort.onclick = function(){  
-     courses=sortElement ;
-      display();
-      sortName.style.display="inline-block";
-      withoutSort.style.display= "none";
+    courses=sortElement ;
+     display();
+     sortName.style.display="inline-block";
+     withoutSort.style.display= "none";
 }
-
-
-
-
-
-
-
+// to display function toggleSortOrder when we click at sort/sortdowm 
+sortName.onclick = toggleSortOrder;
+sortNameDown.onclick = toggleSortOrder;
