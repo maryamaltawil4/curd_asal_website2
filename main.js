@@ -7,9 +7,6 @@ let deleteBtn = document.getElementById('deleteBtn');
 let buttons = document.getElementById('buttons');
 let searchBtn =document.getElementById('searchbtn');
 let updateB = document.getElementById('updateB');
-let sortName = document.getElementById("sortName");
-let sortNameDown = document.getElementById("sortNameDown");
-let withoutSort = document.getElementById("withoutSort");
 let completedBtn =document.getElementById("completedBtn");
 let UncompletedBtn =document.getElementById("UncompletedBtn");
 let AllcoursesBtn =document.getElementById("AllcoursesBtn");
@@ -136,56 +133,6 @@ for (var i = 0 ; i < courses.length ; i++) {
    tableBody.innerHTML = data;
 
    }
-}
-//order items alphabetically by name 
-sortNameDown.style.display="none";
-withoutSort.style.display="none";
-
-sortName.onclick = function(){
-   sortElement = courses.slice();
-   courses.sort(function (a, b) {
-        if (a.name < b.name) {
-          return -1;
-        }
-        if (a.name > b.name) {
-          return 1;
-        }
-        return 0;
-      });
-      
-      
-      display(courses);
-      sortName.style.display="none";
-      sortNameDown.style.display="inline-block";
-
-}
-
-sortNameDown.onclick = function(){
-
-    courses.sort(function (a, b) {
-        if (a.name > b.name) {
-          return -1;
-        }
-        if (a.name < b.name) {
-          return 1;
-        }
-        return 0;
-      });
-      
-      console.log(courses); 
-      display(courses);
-
-      sortNameDown.style.display= "none";
-
-      withoutSort.style.display="inline-block";
-
-}
-
-withoutSort.onclick = function(){  
-     courses=sortElement ;
-      display(courses);
-      sortName.style.display="inline-block";
-      withoutSort.style.display= "none";
 }
 
 
