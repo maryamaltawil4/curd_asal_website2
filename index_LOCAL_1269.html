@@ -22,10 +22,10 @@
                 <div class="container">
                     <h4 class="text-primary">Search for courses </h4>
                     <input type="search" placeholder="search..." id="searchbtn" class="form-control my-3">
-                    <button id="AllcoursesBtn" class="btn btn-outline-danger text-center my-3" onclick="AllcoursesBtn()">ALL courses</button>
-                    <button id="deleteBtn" class="btn btn-outline-danger text-center my-3" onclick ="deleteBtn()">delete all</button>
-                    <button id="completedBtn" class="btn btn-outline-danger text-center my-3" onclick="completedBtn()">completed courses</button>
-                    <button id="UncompletedBtn" class="btn btn-outline-danger text-center my-3" onclick="UncompletedBtn()">Uncompleted courses</button>
+                    <button id="AllcoursesBtn" class="btn btn-outline-danger text-center my-3">ALL courses</button>
+                    <button id="deleteBtn" class="btn btn-outline-danger text-center my-3">delete all</button>
+                    <button id="completedBtn" class="btn btn-outline-danger text-center my-3">completed courses</button>
+                    <button id="UncompletedBtn" class="btn btn-outline-danger text-center my-3">Uncompleted courses</button>
                     <div class="table-responsive">
                         <table class="table table table-striped">
                             <thead>
@@ -34,8 +34,8 @@
                                     <th id="d_none">completed</th>
                                     <th>name</th>
                                     <th><i class="fa-solid fa-arrows-up-to-line " id="sortName" onclick="toggleSortOrder()"></i></th>
-                                    <th><i class="fa-solid fa-arrows-down-to-line" id="sortNameDown" onclick="toggleSortOrder()" ></i></th>
-                                    <th><i class="fa-solid fa-filter-circle-xmark"id="withoutSort" onclick="withoutSort()" ></i></th>
+                                    <th><i class="fa-solid fa-arrows-down-to-line" id="sortNameDown" onclick="toggleSortOrder()"></i></th>
+                                    <th><i class="fa-solid fa-filter-circle-xmark"id="withoutSort" ></i></th>
                                     <th>category</th>
                                     <th>price</th>
                                     <th>description</th>
@@ -94,8 +94,8 @@
                         </span>
                     </div>
                     <div id="buttons">
-                        <button type="button" class="btn btn-secondary mt-3" id="addBtn" onclick="AddClick(event)"   >Add Course</button>
-                        <button type="button" class="btn btn-secondary mt-3" id="updateBtn">update Course</button>
+                        <button type="button" class="btn btn-secondary mt-3" id="addBtn"   >Add Course</button>
+                        <button type="button" class="btn btn-secondary mt-3" id="updateB"  >update Course</button>
                         <button class="btn btn-outline-secondary mt-3" type="reset">clear</button>
                     </div>
                 </form>

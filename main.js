@@ -3,15 +3,16 @@ var courseCategory = document.getElementById("courseCategory");
 var coursePrice = document.getElementById("coursePrice");
 var courseDescription = document.getElementById("courseDescription");
 var tableBody = document.getElementById("tableBody");
-let deleteBtn = document.getElementById("deleteBtn");
 let buttons = document.getElementById("buttons");
 let searchBtn = document.getElementById("searchbtn");
-let updateB = document.getElementById("updateB");
-let completedBtn = document.getElementById("completedBtn");
-let UncompletedBtn = document.getElementById("UncompletedBtn");
-let AllcoursesBtn = document.getElementById("AllcoursesBtn");
+let UncompletedBtn_click = document.getElementById("UncompletedBtn");
+let completedBtn_click = document.getElementById("completedBtn");
+let withoutSortBtn= document.getElementById("withoutSort");
+let updateB = document.getElementById("updateBtn");
+let btnAdd = document.getElementById("addBtn");
 let values = [];
-UncompletedBtn.style.display = "none";
+
+UncompletedBtn_click.style.display = "none";
 updateB.style.display = "none";
 let coursesCompleted = [];
 let coursesUnCompleted = [];
@@ -23,9 +24,9 @@ if (localStorage.getItem("courses")) {
   courses = [];
 }
 display(courses);
-var btnAdd = document.getElementById("addBtn");
 
-btnAdd.onclick = function (e) {
+
+ function AddClick (e) {
   e.preventDefault();
   var course = {
     name: courseName.value,
@@ -34,7 +35,7 @@ btnAdd.onclick = function (e) {
     description: courseDescription.value,
     IsCompleted: false,
   };
-  console.log(courses);
+ 
   courses.push(course);
   clear();
   display(courses);
@@ -54,7 +55,7 @@ function deleteitem(i) {
   display(courses);
 }
 
-deleteBtn.onclick = function () {
+function deleteBtn () {
   courses = [];
   localStorage.removeItem("courses");
   display(courses);
@@ -66,16 +67,20 @@ function updateitem(i) {
   courseCategory.value = category;
   coursePrice.value = price;
   courseDescription.value = description;
+  
+
   btnAdd.style.display = "none";
   updateB.style.display = "inline-block";
 
-  updateB.onclick = function () {
+  updateB.onclick = function(){
     var course = {
-      name: courseName.value,
-      category: courseCategory.value,
-      price: coursePrice.value,
-      description: courseDescription.value,
-    };
+        name: courseName.value ,
+        category : courseCategory.value ,
+        price  : coursePrice.value   ,
+        description    : courseDescription.value,
+        IsCompleted: courses[i].IsCompleted
+    
+    }
 
     courses[i] = course;
     display(courses);
@@ -108,7 +113,7 @@ searchBtn.onkeyup = function () {
 //add button completed with checkbox that will show completed
 //uncompleted courses based on its status
 
-AllcoursesBtn.onclick = function () {
+function AllcoursesBtn () {
   display(courses);
 };
 
@@ -120,7 +125,7 @@ function completed(i) {
 }
 
 sortNameDown.style.display="none";
-withoutSort.style.display="none";
+withoutSortBtn.style.display="none";
 sortName.style.display= "inline-block" ;
 
 function toggleSortOrder() {
@@ -138,26 +143,27 @@ function toggleSortOrder() {
             return b.name.localeCompare(a.name);
         });
         sortNameDown.style.display = "none";
-        withoutSort.style.display="inline-block";
+        withoutSortBtn.style.display="inline-block";
 
     }
 
     display(courses);
 }
 // to display course without sort 
-withoutSort.onclick = function(){  
+ function withoutSort (){  
     courses=sortElement ;
      display();
      sortName.style.display="inline-block";
-     withoutSort.style.display= "none";
-completedBtn.onclick = function () {
+     withoutSortBtn.style.display= "none";
+ }
+ function completedBtn () {
   let coursesCompleted = courses.filter((course) => course.IsCompleted);
   display(coursesCompleted);
-  completedBtn.style.display = "none";
-  UncompletedBtn.style.display = "inline-block";
+  completedBtn_click.style.display = "none";
+  UncompletedBtn_click.style.display = "inline-block";
 };
 
-UncompletedBtn.onclick = function () {
+function UncompletedBtn() {
   let uncoursesCompleted = [];
   for (let i = 0; i < courses.length; i++) {
     if (courses[i].IsCompleted == false) {
@@ -165,8 +171,8 @@ UncompletedBtn.onclick = function () {
     }
   }
   display(uncoursesCompleted);
-  UncompletedBtn.style.display = "none";
-  completedBtn.style.display = "inline-block";
+  UncompletedBtn_click.style.display = "none";
+  completedBtn_click.style.display = "inline-block";
 };
 
 function display(courseList) {
@@ -203,10 +209,3 @@ function display(courseList) {
     }
   }
 }
-
-
-
-
-
-
-
