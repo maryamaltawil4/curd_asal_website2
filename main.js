@@ -14,7 +14,6 @@ let withoutSort = document.getElementById("withoutSort");
 updateB.style.display="none" 
 let courses =[];
 if (localStorage.getItem('courses')){
-    console.log('here')
     courses = JSON.parse(localStorage.getItem('courses'))
 }
 else {
@@ -32,7 +31,6 @@ btnAdd.onclick = function(e) {
         price  : coursePrice.value   ,
         description    : courseDescription.value
     }
-    console.log(courses)
     courses.push(course);
     clear();
     display()
@@ -43,7 +41,6 @@ function display() {
     var data = "";
     
     for (var i = 0 ; i < courses.length ; i++) {
-        console.log(i);
         data += `
      <tr>
         <td>${i + 1}</td>
@@ -153,7 +150,7 @@ function toggleSortOrder() {
 
     }
 
-    display(courses);
+    display();
 }
 // to display course without sort 
 withoutSort.onclick = function(){  
@@ -162,6 +159,3 @@ withoutSort.onclick = function(){
      sortName.style.display="inline-block";
      withoutSort.style.display= "none";
 }
-// to display function toggleSortOrder when we click at sort/sortdowm 
-sortName.onclick = toggleSortOrder;
-sortNameDown.onclick = toggleSortOrder;
