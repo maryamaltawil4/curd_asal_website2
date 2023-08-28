@@ -162,6 +162,4 @@ withoutSort.onclick = function(){
      sortName.style.display="inline-block";
      withoutSort.style.display= "none";
 }
-// to display function toggleSortOrder when we click at sort/sortdowm 
-sortName.onclick = toggleSortOrder;
-sortNameDown.onclick = toggleSortOrder;
+
