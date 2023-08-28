@@ -119,6 +119,37 @@ function completed(i) {
   localStorage.setItem("courses", JSON.stringify(courses)); 
 }
 
+sortNameDown.style.display="none";
+withoutSort.style.display="none";
+sortName.style.display= "inline-block" ;
+
+function toggleSortOrder() {
+ 
+
+    if (sortName.style.display == "inline-block") {
+        sortElement = courses.slice();
+        courses.sort(function(a, b) {
+            return a.name.localeCompare(b.name);
+        });
+        sortName.style.display = "none";
+        sortNameDown.style.display = "inline-block";
+    } else {
+        courses.sort(function(a, b) {
+            return b.name.localeCompare(a.name);
+        });
+        sortNameDown.style.display = "none";
+        withoutSort.style.display="inline-block";
+
+    }
+
+    display(courses);
+}
+// to display course without sort 
+withoutSort.onclick = function(){  
+    courses=sortElement ;
+     display();
+     sortName.style.display="inline-block";
+     withoutSort.style.display= "none";
 completedBtn.onclick = function () {
   let coursesCompleted = courses.filter((course) => course.IsCompleted);
   display(coursesCompleted);
@@ -172,3 +203,10 @@ function display(courseList) {
     }
   }
 }
+
+
+
+
+
+
+
