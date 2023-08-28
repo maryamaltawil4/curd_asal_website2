@@ -162,4 +162,3 @@ withoutSort.onclick = function(){
      sortName.style.display="inline-block";
      withoutSort.style.display= "none";
 }
-
