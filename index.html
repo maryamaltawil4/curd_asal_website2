@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- bootstrap -->
-    <link rel="stylesheet" href="vendor/css/all.min.css">
     <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/css/style.css">
+    
 </head>
 
 <body>
@@ -23,7 +24,7 @@
                     <h4 class="text-primary">Search for courses </h4>
                     <input type="search" placeholder="search..." id="searchbtn" class="form-control my-3">
                     <button id="AllcoursesBtn" class="btn btn-outline-danger text-center my-3" onclick="AllcoursesBtn()">ALL courses</button>
-                    <button id="deleteBtn" class="btn btn-outline-danger text-center my-3" onclick ="deleteBtn()">delete all</button>
+                    <button id="deleteAll" class="btn btn-outline-danger text-center my-3" onclick ="deleteAll()">delete all</button>
                     <button id="completedBtn" class="btn btn-outline-danger text-center my-3" onclick="completedBtn()">completed courses</button>
                     <button id="UncompletedBtn" class="btn btn-outline-danger text-center my-3" onclick="UncompletedBtn()">Uncompleted courses</button>
                     <div class="table-responsive">
@@ -107,6 +108,7 @@
     <script src="vendor/js/bootstrap.min.js"></script>
     <!-- customized -->
     <script src="main.js"></script>
+    <script src="https://kit.fontawesome.com/bc1abaab3b.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

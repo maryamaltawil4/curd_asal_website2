@@ -10,7 +10,7 @@ let completedBtn_click = document.getElementById("completedBtn");
 let withoutSortBtn = document.getElementById("withoutSort");
 let updateB = document.getElementById("updateBtn");
 let btnAdd = document.getElementById("addBtn");
-let values = [];
+
 
 UncompletedBtn_click.style.display = "none";
 updateB.style.display = "none";
@@ -54,7 +54,7 @@ function deleteitem(i) {
   display(courses);
 }
 
-function deleteBtn() {
+function deleteAll() {
   courses = [];
   localStorage.removeItem("courses");
   display(courses);
